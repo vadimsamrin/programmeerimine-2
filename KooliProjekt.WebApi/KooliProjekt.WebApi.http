@@ -1,0 +1,6 @@
+@KooliProjekt.WebApi_HostAddress = http://localhost:5179
+
+GET {{KooliProjekt.WebApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

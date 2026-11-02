@@ -1,0 +1,76 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KooliProjekt.Application", "KooliProjekt.Application\KooliProjekt.Application.csproj", "{649E4FE4-9810-4AC3-BD3E-44507E412637}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KooliProjekt.WebApi", "KooliProjekt.WebApi\KooliProjekt.WebApi.csproj", "{4A7E73A8-8520-4202-9B17-5C777437A39A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KooliProjekt.Application.UnitTests", "KooliProjekt.Application.UnitTests\KooliProjekt.Application.UnitTests.csproj", "{5E2626BB-E209-4796-A09E-0C526E8132A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KooliProjekt.WindowsForms", "KooliProjekt.WindowsForms\KooliProjekt.WindowsForms.csproj", "{EA83A940-86F4-4D58-B4C9-2C9CF990DD71}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KooliProjekt.WpfApplication", "KooliProjekt.WpfApplication\KooliProjekt.WpfApplication.csproj", "{85A1EA15-D6B5-4A79-82C9-604EC8090387}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KooliProjekt.BlazorWASM", "KooliProjekt.BlazorWASM\KooliProjekt.BlazorWASM.csproj", "{6A227C8F-C0F1-4FCA-92CD-CD3B6A86503B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KooliProjekt.ApiClient", "KooliProjekt.ApiClient\KooliProjekt.ApiClient.csproj", "{4A0C5279-22C9-4871-B93C-5F8F6F52A5EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KooliProjekt.WpfApplication.UnitTests", "KooliProjekt.WpfApplication.UnitTests\KooliProjekt.WpfApplication.UnitTests.csproj", "{CEA0C75D-5723-4BC6-A805-1C7B5F5AFDFE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KooliProjekt.WindowsForms.UnitTests", "KooliProjekt.WindowsForms.UnitTests\KooliProjekt.WindowsForms.UnitTests.csproj", "{FA343A64-DB88-475D-981C-1A1E9B4ED5B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KooliProjekt.IntegrationTests", "KooliProjekt.IntegrationTests\KooliProjekt.IntegrationTests.csproj", "{45BD4BA0-509A-4EC5-9DDE-95AE10DAAA02}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{649E4FE4-9810-4AC3-BD3E-44507E412637}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{649E4FE4-9810-4AC3-BD3E-44507E412637}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{649E4FE4-9810-4AC3-BD3E-44507E412637}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{649E4FE4-9810-4AC3-BD3E-44507E412637}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A7E73A8-8520-4202-9B17-5C777437A39A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A7E73A8-8520-4202-9B17-5C777437A39A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A7E73A8-8520-4202-9B17-5C777437A39A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A7E73A8-8520-4202-9B17-5C777437A39A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E2626BB-E209-4796-A09E-0C526E8132A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E2626BB-E209-4796-A09E-0C526E8132A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E2626BB-E209-4796-A09E-0C526E8132A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E2626BB-E209-4796-A09E-0C526E8132A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA83A940-86F4-4D58-B4C9-2C9CF990DD71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA83A940-86F4-4D58-B4C9-2C9CF990DD71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA83A940-86F4-4D58-B4C9-2C9CF990DD71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA83A940-86F4-4D58-B4C9-2C9CF990DD71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85A1EA15-D6B5-4A79-82C9-604EC8090387}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85A1EA15-D6B5-4A79-82C9-604EC8090387}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85A1EA15-D6B5-4A79-82C9-604EC8090387}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85A1EA15-D6B5-4A79-82C9-604EC8090387}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A227C8F-C0F1-4FCA-92CD-CD3B6A86503B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A227C8F-C0F1-4FCA-92CD-CD3B6A86503B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A227C8F-C0F1-4FCA-92CD-CD3B6A86503B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A227C8F-C0F1-4FCA-92CD-CD3B6A86503B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A0C5279-22C9-4871-B93C-5F8F6F52A5EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A0C5279-22C9-4871-B93C-5F8F6F52A5EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A0C5279-22C9-4871-B93C-5F8F6F52A5EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A0C5279-22C9-4871-B93C-5F8F6F52A5EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEA0C75D-5723-4BC6-A805-1C7B5F5AFDFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEA0C75D-5723-4BC6-A805-1C7B5F5AFDFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEA0C75D-5723-4BC6-A805-1C7B5F5AFDFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEA0C75D-5723-4BC6-A805-1C7B5F5AFDFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA343A64-DB88-475D-981C-1A1E9B4ED5B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA343A64-DB88-475D-981C-1A1E9B4ED5B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA343A64-DB88-475D-981C-1A1E9B4ED5B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA343A64-DB88-475D-981C-1A1E9B4ED5B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45BD4BA0-509A-4EC5-9DDE-95AE10DAAA02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45BD4BA0-509A-4EC5-9DDE-95AE10DAAA02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45BD4BA0-509A-4EC5-9DDE-95AE10DAAA02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45BD4BA0-509A-4EC5-9DDE-95AE10DAAA02}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

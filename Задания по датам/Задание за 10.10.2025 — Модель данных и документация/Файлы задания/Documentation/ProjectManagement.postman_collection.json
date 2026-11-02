@@ -1,0 +1,36 @@
+{
+  "info": {
+    "name": "Project management API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [{ "key": "baseUrl", "value": "http://localhost:5179" }, { "key": "token", "value": "" }],
+  "item": [
+    {
+      "name": "Login demo user",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{baseUrl}}/login?useCookies=false",
+        "body": { "mode": "raw", "raw": "{\n  \"email\": \"demo@project.local\",\n  \"password\": \"Project123!\"\n}" }
+      },
+      "event": [{ "listen": "test", "script": { "exec": ["pm.collectionVariables.set('token', pm.response.json().accessToken);"] } }]
+    },
+    {
+      "name": "List projects",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+        "url": "{{baseUrl}}/api/projects?page=1&pageSize=20"
+      }
+    },
+    {
+      "name": "Create project",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }, { "key": "Content-Type", "value": "application/json" }],
+        "url": "{{baseUrl}}/api/projects",
+        "body": { "mode": "raw", "raw": "{\n  \"name\": \"New project\",\n  \"startDate\": \"2026-09-10\",\n  \"deadline\": \"2026-10-10\",\n  \"budget\": 5000,\n  \"hourlyRate\": 55\n}" }
+      }
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+bin/
+obj/
+.vs/
+*.user
+*.suo
+KooliProjekt.WebApi/uploads/
+KooliProjektAngular/node_modules/
+KooliProjektAngular/dist/
+TestResults/

@@ -1,0 +1,25 @@
+<main>
+  <header>
+    <div><p class="eyebrow">PROJECT MANAGEMENT</p><h1>Projects</h1></div>
+    <button type="button" (click)="load()">Refresh</button>
+  </header>
+  @if (loading()) { <p>Loading projects...</p> }
+  @else if (error()) { <p class="error">{{ error() }}</p> }
+  @else {
+    <section class="summary"><strong>{{ projects().length }}</strong><span>active project records</span></section>
+    <table>
+      <thead><tr><th>Project</th><th>Schedule</th><th>Budget</th><th>Current cost</th><th>Tasks</th></tr></thead>
+      <tbody>
+        @for (project of projects(); track project.id) {
+          <tr>
+            <td><strong>{{ project.name }}</strong></td>
+            <td>{{ project.startDate | date }} - {{ project.deadline | date }}</td>
+            <td>{{ project.budget | currency:'EUR' }}</td>
+            <td [class.over-budget]="project.currentCost > project.budget">{{ project.currentCost | currency:'EUR' }}</td>
+            <td>{{ project.completedTaskCount }} / {{ project.taskCount }}</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  }
+</main>

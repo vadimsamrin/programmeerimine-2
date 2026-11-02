@@ -1,0 +1,165 @@
+@page "/projects/new"
+@page "/projects/{Id:int}"
+@using KooliProjekt.ApiClient
+@inject IProjectApiClient ApiClient
+@inject NavigationManager Navigation
+
+<PageTitle>@(Id is null ? "New project" : "Edit project")</PageTitle>
+
+<h1>@(Id is null ? "New project" : "Edit project")</h1>
+
+@if (loading)
+{
+    <p><em>Loading project...</em></p>
+}
+else
+{
+    @if (errors.Count > 0)
+    {
+        <div class="alert alert-danger">
+            @foreach (var error in errors)
+            {
+                <div>@error</div>
+            }
+        </div>
+    }
+    <EditForm Model="model" OnValidSubmit="SaveAsync">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+        <div class="mb-3">
+            <label class="form-label">Name</label>
+            <InputText class="form-control" @bind-Value="model.Name" />
+        </div>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Start date</label>
+                <InputDate class="form-control" @bind-Value="model.StartDate" />
+            </div>
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Deadline</label>
+                <InputDate class="form-control" @bind-Value="model.Deadline" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Budget</label>
+                <InputNumber class="form-control" @bind-Value="model.Budget" />
+            </div>
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Hourly rate</label>
+                <InputNumber class="form-control" @bind-Value="model.HourlyRate" />
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary" disabled="@saving">Save</button>
+        <a class="btn btn-secondary ms-2" href="projects">Cancel</a>
+        @if (Id is not null)
+        {
+            <button type="button" class="btn btn-outline-danger ms-2" @onclick="DeleteAsync" disabled="@saving">Delete</button>
+        }
+    </EditForm>
+}
+
+@code {
+    [Parameter] public int? Id { get; set; }
+
+    private ProjectEdit model = new();
+    private readonly List<string> errors = [];
+    private bool loading = true;
+    private bool saving;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        loading = true;
+        errors.Clear();
+        try
+        {
+            await ApiClient.LoginAsync("demo@project.local", "Project123!");
+            if (Id is null)
+            {
+                model = new ProjectEdit();
+                return;
+            }
+
+            var project = await ApiClient.GetProjectAsync(Id.Value);
+            if (project is null)
+            {
+                errors.Add("Project was not found.");
+                return;
+            }
+
+            model = new ProjectEdit
+            {
+                Id = project.Id,
+                Name = project.Name,
+                StartDate = project.StartDate,
+                Deadline = project.Deadline,
+                Budget = project.Budget,
+                HourlyRate = project.HourlyRate
+            };
+        }
+        catch (Exception exception)
+        {
+            errors.Add(exception.Message);
+        }
+        finally
+        {
+            loading = false;
+        }
+    }
+
+    private async Task SaveAsync()
+    {
+        errors.Clear();
+        if (string.IsNullOrWhiteSpace(model.Name)) errors.Add("Name is required.");
+        if (model.Deadline < model.StartDate) errors.Add("Deadline cannot be earlier than start date.");
+        if (model.Budget < 0 || model.HourlyRate < 0) errors.Add("Budget and hourly rate must not be negative.");
+        if (errors.Count > 0) return;
+
+        saving = true;
+        try
+        {
+            var result = await ApiClient.SaveProjectAsync(model);
+            if (result.HasErrors)
+            {
+                errors.AddRange(result.Errors);
+                errors.AddRange(result.PropertyErrors.SelectMany(x => x.Value));
+                return;
+            }
+            Navigation.NavigateTo("projects");
+        }
+        catch (Exception exception)
+        {
+            errors.Add(exception.Message);
+        }
+        finally
+        {
+            saving = false;
+        }
+    }
+
+    private async Task DeleteAsync()
+    {
+        if (Id is null) return;
+        errors.Clear();
+        saving = true;
+        try
+        {
+            var result = await ApiClient.DeleteProjectAsync(Id.Value);
+            if (result.HasErrors)
+            {
+                errors.AddRange(result.Errors);
+                errors.AddRange(result.PropertyErrors.SelectMany(x => x.Value));
+                return;
+            }
+            Navigation.NavigateTo("projects");
+        }
+        catch (Exception exception)
+        {
+            errors.Add(exception.Message);
+        }
+        finally
+        {
+            saving = false;
+        }
+    }
+}
